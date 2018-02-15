@@ -1,0 +1,3 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" 
+    Service="AsyncAwaitService.Service.ProductService" 
+    CodeBehind="ProductService.svc.cs" %>
