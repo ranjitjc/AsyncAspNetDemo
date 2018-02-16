@@ -17,19 +17,19 @@
             <div class="alert alert-info">
                 <strong>Products</strong>
             </div>
-            <asp:GridView ID="ProductGridView" runat="server" AutoGenerateColumns="true" ItemType="AsyncAwaitWebUI.ProductProxyService.Product"></asp:GridView>
+            <asp:GridView ID="ProductGridView" runat="server" CssClass="table table-striped" AutoGenerateColumns="true" ItemType="AsyncAwaitWebUI.ProductProxyService.Product"></asp:GridView>
         </div>
         <div class="col-md-4">
              <div class="alert alert-info">
                 <strong>SaleOrders</strong>
             </div>
-            <asp:GridView ID="SaleOrderGridView" runat="server" AutoGenerateColumns="true" ItemType="AsyncAwaitWebUI.SaleOrderProxyService.SaleOrder"></asp:GridView>
+            <asp:GridView ID="SaleOrderGridView" runat="server" CssClass="table table-striped" AutoGenerateColumns="true" ItemType="AsyncAwaitWebUI.SaleOrderProxyService.SaleOrder"></asp:GridView>
         </div>
         <div class="col-md-4">
             <div class="alert alert-info">
                 <strong>Persons</strong>
             </div>
-            <asp:GridView ID="PersonGridView" runat="server" AutoGenerateColumns="true" ItemType="AsyncAwaitWebUI.PersonProxyService.Person"></asp:GridView>
+            <asp:GridView ID="PersonGridView" runat="server" CssClass="table table-striped" AutoGenerateColumns="true" ItemType="AsyncAwaitWebUI.PersonProxyService.Person"></asp:GridView>
         </div>
         </div>
     </div>

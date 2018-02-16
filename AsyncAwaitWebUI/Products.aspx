@@ -13,6 +13,6 @@
     </div>
 
         <div class="well">
-            <asp:GridView ID="ProductGridView" runat="server" AutoGenerateColumns="true" ItemType="AsyncAwaitService.Product"></asp:GridView>
+            <asp:GridView ID="ProductGridView" runat="server" CssClass="table table-striped" AutoGenerateColumns="true" ItemType="AsyncAwaitService.Product"></asp:GridView>
         </div>
     </asp:Content>

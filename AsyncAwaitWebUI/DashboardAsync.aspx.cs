@@ -66,13 +66,13 @@ namespace AsyncAwaitWebUI
 
         private void LoadProducts(IList<ProductProxyService.Product>  products)
         {
-            ProductGridView.DataSource = products;
+            ProductGridView.DataSource = products.Take(10);
             ProductGridView.DataBind();
         }
 
         private void LoadSaleOrders(IList<SaleOrderProxyService.SaleOrder> saleOrders)
         {
-            SaleOrderGridView.DataSource = saleOrders;
+            SaleOrderGridView.DataSource = saleOrders.Take(10);
             SaleOrderGridView.DataBind();
 
         }
@@ -81,7 +81,7 @@ namespace AsyncAwaitWebUI
         private void LoadPersons(IList<PersonProxyService.Person> persons)
         {
             //threadIds.Add(Thread.CurrentThread.ManagedThreadId);
-            PersonGridView.DataSource = persons;
+            PersonGridView.DataSource = persons.Take(10);
             PersonGridView.DataBind();
        }
 

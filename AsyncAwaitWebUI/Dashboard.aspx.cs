@@ -53,13 +53,9 @@ namespace AsyncAwaitWebUI
             IList<ProductProxyService.Product> products = client.GetProducts();
             statistics.Add(new Statistic { ThreadId = Thread.CurrentThread.ManagedThreadId, Message = "LoadProducts():End" });
 
-            ProductGridView.DataSource = products;
+            ProductGridView.DataSource = products.Take(10);
             ProductGridView.DataBind();
 
-            //TimeSpan ts = pageWatch.Elapsed;
-            //PageElapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            //   ts.Hours, ts.Minutes, ts.Seconds,
-            //   ts.Milliseconds / 10);
         }
 
 
@@ -71,14 +67,9 @@ namespace AsyncAwaitWebUI
             IList<SaleOrderProxyService.SaleOrder> products = client.GetSaleOrders();
             statistics.Add(new Statistic { ThreadId = Thread.CurrentThread.ManagedThreadId, Message = "LoadSaleOrders():End" });
 
-            SaleOrderGridView.DataSource = products;
+            SaleOrderGridView.DataSource = products.Take(10);
             SaleOrderGridView.DataBind();
 
-
-            //TimeSpan ts = pageWatch.Elapsed;
-            //PageElapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            //   ts.Hours, ts.Minutes, ts.Seconds,
-            //   ts.Milliseconds / 10);
         }
 
 
@@ -88,16 +79,12 @@ namespace AsyncAwaitWebUI
             PersonProxyService.PersonServiceClient client = new PersonProxyService.PersonServiceClient();
             IList<PersonProxyService.Person> products = client.GetPersons();
             statistics.Add(new Statistic { ThreadId = Thread.CurrentThread.ManagedThreadId, Message = "LoadPersons():End" });
-            PersonGridView.DataSource = products;
+            PersonGridView.DataSource = products.Take(10);
             PersonGridView.DataBind();
 
             ThreadGridView.DataSource = statistics;
             ThreadGridView.DataBind();
 
-        //    TimeSpan ts = pageWatch.Elapsed;
-        //    PageElapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-        //       ts.Hours, ts.Minutes, ts.Seconds,
-        //       ts.Milliseconds / 10);
        }
 
     }

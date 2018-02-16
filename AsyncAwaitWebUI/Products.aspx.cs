@@ -48,7 +48,7 @@ namespace AsyncAwaitWebUI
 
             statistics.Add(new Statistic { ThreadId = Thread.CurrentThread.ManagedThreadId, Message = "LoadProducts():End" });
 
-            ProductGridView.DataSource = products;
+            ProductGridView.DataSource = products.Take(10);
             ProductGridView.DataBind();
 
             

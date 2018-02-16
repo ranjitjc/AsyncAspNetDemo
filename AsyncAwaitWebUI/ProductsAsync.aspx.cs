@@ -25,8 +25,27 @@ namespace AsyncAwaitWebUI
             pageWatch.Start();
             statistics.Add(new Statistic { ThreadId = Thread.CurrentThread.ManagedThreadId, Message = "Page Load:Start" });
 
+            //RegisterAsyncTask(new PageAsyncTask(LoadProductsAsync));
+            RegisterAsyncTask(new PageAsyncTask( async () =>{
+                statistics.Add(new Statistic { ThreadId = Thread.CurrentThread.ManagedThreadId, Message = "LoadProductsAsync():Start" });
 
-            RegisterAsyncTask(new PageAsyncTask(LoadProductsAsync));
+                ProductProxyService.ProductServiceClient client = new ProductProxyService.ProductServiceClient();
+                IList<ProductProxyService.Product> products = await client.GetProductsTaskAsync();
+                statistics.Add(new Statistic { ThreadId = Thread.CurrentThread.ManagedThreadId, Message = "LoadProductsAsync():End" });
+
+                ProductGridView.DataSource = products.Take(10);
+                ProductGridView.DataBind();
+
+                ThreadGridView.DataSource = statistics;
+                ThreadGridView.DataBind();
+
+                TimeSpan ts1 = pageWatch.Elapsed;
+                PageElapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                   ts1.Hours, ts1.Minutes, ts1.Seconds,
+                   ts1.Milliseconds / 10);
+            }));
+
+
             statistics.Add(new Statistic { ThreadId = Thread.CurrentThread.ManagedThreadId, Message = "Page Load::End" });
 
 
@@ -46,7 +65,7 @@ namespace AsyncAwaitWebUI
             IList<ProductProxyService.Product> products= await client.GetProductsTaskAsync();
             statistics.Add(new Statistic { ThreadId = Thread.CurrentThread.ManagedThreadId, Message = "LoadProductsAsync():End" });
 
-            ProductGridView.DataSource = products;
+            ProductGridView.DataSource = products.Take(10);
             ProductGridView.DataBind();
 
             ThreadGridView.DataSource = statistics;

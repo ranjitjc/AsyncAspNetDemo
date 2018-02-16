@@ -13,15 +13,6 @@ namespace AsyncAwaitWebUI {
     public partial class ProductsAsync {
         
         /// <summary>
-        /// ProductGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ProductGridView;
-        
-        /// <summary>
         /// ThreadGridView control.
         /// </summary>
         /// <remarks>
@@ -29,5 +20,14 @@ namespace AsyncAwaitWebUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView ThreadGridView;
+        
+        /// <summary>
+        /// ProductGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ProductGridView;
     }
 }
